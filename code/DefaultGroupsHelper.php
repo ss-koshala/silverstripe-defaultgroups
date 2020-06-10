@@ -12,6 +12,13 @@
  * @author Anselm Christophersen <ac@anselm.dk>
  * @date   July 2015
  */
+namespace DefaultGroups;
+
+use SilverStripe\ORM\DataObject;
+use SilverStripe\ORM\DB;
+use SilverStripe\Security\Group;
+use SilverStripe\Security\Permission;
+
 class DefaultGroupsHelper
 {
 
