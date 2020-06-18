@@ -34,18 +34,18 @@ class DefaultGroupsHelper
     {
         $group = null;
         $action = null;
-        if (!DataObject::get_one('Group', "Code = '" . $code . "'")) {
+        if (!DataObject::get_one(Group::class, "Code = '" . $code . "'")) {
             $action = 'create';
             $group = new Group();
         } else {
             $action = 'update';
-            $group = DataObject::get_one('Group', "Code = '" . $code . "'");
+            $group = DataObject::get_one(Group::class, "Code = '" . $code . "'");
         }
 
         $group->Title = $title;
         $group->Code = $code;
         if ($parentCode) {
-            $parentObj = DataObject::get_one("Group", "Code = '" . $parentCode . "'");
+            $parentObj = DataObject::get_one(Group::class, "Code = '" . $parentCode . "'");
             $group->ParentID = $parentObj->ID;
         }
         $group->write();
